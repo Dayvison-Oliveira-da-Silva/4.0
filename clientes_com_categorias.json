@@ -1,0 +1,200 @@
+{
+  "CONSTRUTORA": {
+    "categorias": [
+      "INDUSTRIA",
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  },
+  "COZINHA INDUSTRIAL": {
+    "categorias": [
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  },
+  "DISTRIBUIDORES ATACADISTA": {
+    "categorias": [
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "FRALDAS",
+      "EPIs"
+    ]
+  },
+  "INDUSTRIA": {
+    "categorias": [
+      "INDUSTRIA",
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  },
+  "GRANDES REDES SUPERMERCADOS": {
+    "categorias": [
+      "HIGIENE / LIMPEZA",
+      "FRALDAS",
+      "EPIs"
+    ]
+  },
+  "MÉDIO VAREJO": {
+    "categorias": [
+      "HIGIENE / LIMPEZA",
+      "FRALDAS",
+      "EPIs"
+    ]
+  },
+  "REDE FARMA": {
+    "categorias": [
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "FRALDAS",
+      "EPIs"
+    ]
+  },
+  "TRANSPORTADORA": {
+    "categorias": [
+      "INDUSTRIA",
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  },
+  "CLÍNICA ESTÉTICA": {
+    "categorias": [
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "EPIs",
+      "EQUIPAMENTOS",
+      "MEDICAMENTOS"
+    ]
+  },
+  "CLÍNICA MÉDICA": {
+    "categorias": [
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "EPIs",
+      "EQUIPAMENTOS",
+      "MEDICAMENTOS"
+    ]
+  },
+  "CLÍNICA VETERINARIA": {
+    "categorias": [
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "EPIs",
+      "EQUIPAMENTOS",
+      "MEDICAMENTOS"
+    ]
+  },
+  "CLÍNICA LABORATORIAL": {
+    "categorias": [
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "EPIs",
+      "EQUIPAMENTOS",
+      "MEDICAMENTOS"
+    ]
+  },
+  "HOSPITAL": {
+    "categorias": [
+      "INDUSTRIA",
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "FRALDAS",
+      "EPIs",
+      "EQUIPAMENTOS",
+      "MEDICAMENTOS"
+    ]
+  },
+  "LABORATÓRIO": {
+    "categorias": [
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "EPIs",
+      "EQUIPAMENTOS",
+      "MEDICAMENTOS"
+    ]
+  },
+  "ACOUGUE / FRIGORIFICO": {
+    "categorias": [
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  },
+  "CASA DE REPOUSO / ONG/ ASILO / ABRIGO": {
+    "categorias": [
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "FRALDAS",
+      "EPIs",
+      "MEDICAMENTOS"
+    ]
+  },
+  "EMPRESA DE LIMPEZA": {
+    "categorias": [
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  },
+  "ESCOLA": {
+    "categorias": [
+      "INDUSTRIA",
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "FRALDAS",
+      "EPIs",
+      "MEDICAMENTOS"
+    ]
+  },
+  "FARMACIAS E DROGARIAS BAIRRO": {
+    "categorias": [
+      "HOSPITALAR",
+      "HIGIENE / LIMPEZA",
+      "FRALDAS",
+      "EPIs",
+      "MEDICAMENTOS"
+    ]
+  },
+  "MATERIAL DE CONSTRUCAO": {
+    "categorias": [
+      "INDUSTRIA",
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  },
+  "MINI MERCADO": {
+    "categorias": [
+      "HIGIENE / LIMPEZA",
+      "FRALDAS",
+      "EPIs"
+    ]
+  },
+  "PANIFICADORA": {
+    "categorias": [
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  },
+  "PET SHOP": {
+    "categorias": [
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  },
+  "RESTAURANTE": {
+    "categorias": [
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  },
+  "SALÃO DE BELEZA": {
+    "categorias": [
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  },
+  "CASA DE FRIOS": {
+    "categorias": [
+      "HIGIENE / LIMPEZA",
+      "EPIs"
+    ]
+  }
+}

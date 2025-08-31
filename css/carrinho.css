@@ -1,0 +1,155 @@
+ 
+
+        main.carrinhoProposta-main {
+            max-width: 720px;
+            margin: 36px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px #0001;
+            padding: 32px 24px 40px 24px;
+            border: 1px solid #e2e4ea;
+        }
+
+        h1.carrinhoProposta-title {
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 14px;
+            letter-spacing: 1px;
+            color: #1db286;
+        }
+
+        table.carrinhoProposta-tabela {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 28px;
+        }
+
+        th.carrinhoProposta-th,
+        td.carrinhoProposta-td {
+            padding: 10px 7px;
+            text-align: left;
+        }
+
+        th.carrinhoProposta-th {
+            background: #f2faf7;
+            font-weight: 600;
+            color: #0e5343;
+            border-bottom: 2px solid #e2e4ea;
+        }
+
+        td.carrinhoProposta-td {
+            background: #fff;
+            border-bottom: 1px solid #e2e4ea;
+        }
+
+        .carrinhoProposta-vazio {
+            color: #e95757;
+            text-align: center;
+            font-size: 1.1em;
+            padding: 18px 0;
+        }
+
+        .carrinhoProposta-section-title {
+            font-size: 1.18em;
+            color: #1db286;
+            margin: 24px 0 10px;
+            font-weight: 600;
+        }
+
+        .carrinhoProposta-campos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 18px;
+            margin-bottom: 20px;
+        }
+
+        .carrinhoProposta-campos label {
+            font-size: 0.97em;
+            display: block;
+            margin-bottom: 2px;
+            color: #107058;
+            font-weight: 500;
+        }
+
+        .carrinhoProposta-campos input,
+        .carrinhoProposta-campos select {
+            background: #f5f8fa;
+            color: #232325;
+            border: 1.5px solid #d4dde7;
+            border-radius: 7px;
+            padding: 8px 10px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 2px;
+            transition: border 0.2s;
+        }
+
+        .carrinhoProposta-campos input:focus,
+        .carrinhoProposta-campos select:focus {
+            border-color: #1db286;
+            outline: none;
+        }
+
+        .carrinhoProposta-campos input.carrinhoProposta-erro,
+        .carrinhoProposta-campos select.carrinhoProposta-erro {
+            border-color: #e74c3c;
+            background: #fbeaea;
+        }
+
+        .carrinhoProposta-botoes {
+            display: flex;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        button.carrinhoProposta-btn {
+            background: #1db286;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.07em;
+            padding: 11px 26px;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 1px 10px #20be9e11;
+        }
+
+        button.carrinhoProposta-btn[disabled] {
+            background: #b3cdc2;
+            color: #fff;
+            cursor: not-allowed;
+        }
+
+        .carrinhoProposta-msg {
+            margin-top: 18px;
+            font-size: 1.13em;
+            border-radius: 6px;
+            background: #f5f8fa;
+            color: #1db286;
+            padding: 12px 18px;
+            border: 1.5px solid #1db28644;
+            display: none;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .carrinhoProposta-msg.carrinhoProposta-erro {
+            color: #e74c3c;
+            border-color: #e74c3c;
+            background: #fbeaea;
+        }
+
+        @media (max-width: 700px) {
+            main.carrinhoProposta-main {
+                padding: 12px;
+            }
+
+            .carrinhoProposta-campos {
+                grid-template-columns: 1fr;
+            }
+
+            h1.carrinhoProposta-title {
+                font-size: 1.3rem;
+            }
+        }

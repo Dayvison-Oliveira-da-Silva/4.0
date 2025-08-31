@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shelf Distribuidora</title>
+    <link rel="stylesheet" href="css/bottom-nav.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/produtos.css">
+    <link rel="stylesheet" href="css/carrinho.css">
+    <link rel="icon" href="img/logo.png">
+
+    <style>
+        main {
+            margin-bottom: 75px;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(50, 80, 50, .08);
+            padding-bottom: 0;
+            z-index: 10;
+            position: sticky;
+            top: 0;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 0 16px;
+            height: 64px;
+            border-bottom: 1px solid #e0e4e7;
+        }
+
+        .filtro-clientes select {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+        }
+
+        .barra-pesquisa {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .barra-pesquisa input {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: #f5f6fa;
+        }
+
+        .barra-pesquisa button {
+            background: #09f;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 7px 10px;
+            cursor: pointer;
+        }
+
+        .usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .usuario span {
+            color: #333;
+            font-weight: 500;
+            max-width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .usuario button {
+            background: none;
+            border: none;
+            color: #b90000;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .categorias-menu {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 16px;
+            background: #f6f8fa;
+            border-bottom: 1px solid #e0e4e7;
+            scrollbar-width: thin;
+        }
+
+        .categorias-menu button {
+            background: #fff;
+            color: #222;
+            border: 1px solid #cde8c9;
+            padding: 7px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background .2s, color .2s, box-shadow .2s;
+        }
+
+        .categorias-menu button.active,
+        .categorias-menu button:hover {
+            background: #cde8c9;
+            color: #21582a;
+            box-shadow: 0 2px 8px rgba(50, 80, 50, .05);
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 8px;
+                height: auto;
+                padding: 8px;
+            }
+
+            .categorias-menu {
+                padding: 8px 6px;
+            }
+        }
+        
+
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <div class="filtro-clientes">
+                <select id="clienteSelect">
+                    <option value="">Selecione o cliente</option>
+                    <!-- Opções via JS -->
+                </select>
+            </div>
+            <div class="barra-pesquisa">
+                <input type="text" id="search" placeholder="Buscar produtos ou marcas..." autocomplete="off">
+                <button id="btn-pesquisa"><ion-icon name="search-outline"></ion-icon></button>
+            </div>
+            <div class="usuario">
+                <span id="nomeUsuario"></span>
+                <button id="btnDeslogar" title="Sair"><ion-icon name="log-out-outline"></ion-icon></button>
+            </div>
+        </div>
+        <nav class="categorias-menu" aria-label="Categorias de Produtos">
+            <!-- Categorias aqui via JS -->
+        </nav>
+    </header>
+    <main>
+
+    </main>
+    <nav class="navigation" aria-label="Navegação principal">
+        <ul>
+            <li class="list active">
+                <a href="#marcas" aria-current="page">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="text">Marcas</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#produtos">
+                    <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
+                    <span class="text">Produtos</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#carrinho">
+                    <span class="icon"><ion-icon name="bag-add-outline"></ion-icon></span>
+                    <span class="text">Carrinho</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#propostas">
+                    <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
+                    <span class="text">Propostas</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#pedidos">
+                    <span class="icon"><ion-icon name="bag-check-outline"></ion-icon></span>
+                    <span class="text">Pedidos</span>
+                </a>
+            </li>
+            <div class="indicator" aria-hidden="true"></div>
+        </ul>
+    </nav>
+
+    <!-- Ionicons: use module + fallback (não duplique) -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        // 0. Controle do usuário e redirect antes de tudo
+        const usuario = JSON.parse(localStorage.getItem("usuario_shelf") || "{}");
+        if (!usuario.cpf) {
+            window.location.href = "abertura.html";
+        }
+
+        // ---- Roteamento e navegação inferior ----
+        const nav = document.querySelector('.navigation');
+        const items = nav.querySelectorAll('.list');
+        const main = document.querySelector('main');
+
+        nav.style.setProperty('--items', items.length);
+
+        const routes = [
+            { hash: '#marcas', file: 'main/marcas.html' },
+            { hash: '#produtos', file: 'main/produtos.html', js: 'main/produto.js' },
+            { hash: '#carrinho', file: 'main/carrinho.html', js: 'main/carrinho.js' },
+            { hash: '#propostas', file: 'main/propostas.html' },
+            { hash: '#pedidos', file: 'main/pedidos.html' }
+        ];
+
+        let currentTeardown = null; // opcional: para limpar listeners/timers da rota anterior
+
+        async function setActive(index) {
+            items.forEach(li => li.classList.remove('active'));
+            items[index].classList.add('active');
+            nav.style.setProperty('--i', index);
+
+            const route = routes[index];
+
+            // Carrega o HTML da rota
+            const res = await fetch(route.file);
+            const html = await res.text();
+
+            const temp = document.createElement('div');
+            temp.innerHTML = html;
+            const novoMain = temp.querySelector('main');
+            main.innerHTML = novoMain ? novoMain.innerHTML : html;
+
+            // Se a rota anterior expôs um teardown, executa
+            if (typeof currentTeardown === 'function') {
+                try { currentTeardown(); } catch (e) { }
+                currentTeardown = null;
+            }
+
+            // Se a rota tem JS, importa como módulo e chama init(main)
+            if (route.js) {
+                // cache-busting simples para garantir reexecução quando navegar de novo
+                const mod = await import(`./${route.js}?v=${Date.now()}`);
+                if (typeof mod.init === 'function') {
+                    const td = mod.init(main);
+                    if (typeof td === 'function') currentTeardown = td; // permite que o módulo devolva um "limpador"
+                }
+            }
+        }
+
+        function navigateByHash() {
+            const idx = routes.findIndex(r => r.hash === location.hash);
+            setActive(idx >= 0 ? idx : 0);
+        }
+
+        items.forEach((li, idx) => {
+            li.querySelector('a').addEventListener('click', e => {
+                e.preventDefault();
+                window.location.hash = routes[idx].hash;
+            });
+        });
+
+        window.addEventListener('hashchange', navigateByHash);
+        navigateByHash();
+    </script>
+    <script>
+        // 1. Carregar o JSON dos clientes
+        let clientes = [];
+        fetch('clientes_com_categorias.json')
+            .then(res => res.json())
+            .then(data => {
+                // O JSON é: { "Cliente Nome": {categorias: [...], ...}, ... }
+                clientes = Object.keys(data).map(nome => ({
+                    id: nome,
+                    nome: nome,
+                    categorias: data[nome].categorias || []
+                }));
+
+                // Preenche filtro de clientes
+                const clienteSelect = document.getElementById('clienteSelect');
+                clientes.forEach(cli => {
+                    const opt = document.createElement('option');
+                    opt.value = cli.id;
+                    opt.textContent = cli.nome;
+                    clienteSelect.appendChild(opt);
+                });
+
+                // Restaura seleção anterior (se houver)
+                const selecionado = localStorage.getItem('cliente_selecionado');
+                if (selecionado) clienteSelect.value = selecionado;
+
+                clienteSelect.addEventListener('change', e => {
+                    localStorage.setItem('cliente_selecionado', e.target.value);
+                    // Você pode disparar lógica extra aqui (ex: filtrar categorias do cliente)
+                    // window.location.reload();
+                });
+            });
+
+        // 2. Dados do usuário logado
+        document.getElementById('nomeUsuario').textContent = usuario.usuario || "Usuário";
+
+        // 3. Logout
+        document.getElementById('btnDeslogar').onclick = () => {
+            localStorage.removeItem("usuario_shelf");
+            window.location.href = "abertura.html";
+        };
+
+        // 4. Carregar as categorias dos produtos e criar menu de categorias dinâmico
+        let categoriasJSON = {};
+        fetch('produtos_nomes_por_categoria.json')
+            .then(res => res.json())
+            .then(data => {
+                categoriasJSON = data;
+                const categorias = Object.keys(data);
+                const catMenu = document.querySelector('.categorias-menu');
+                catMenu.innerHTML = ''; // Limpa
+
+                categorias.forEach(cat => {
+                    const btn = document.createElement('button');
+                    btn.textContent = cat;
+                    btn.onclick = () => {
+                        // Marca botão como ativo
+                        document.querySelectorAll('.categorias-menu button').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        // Chame seu filtro aqui:
+                        mostrarProdutosDaCategoria(cat);
+                    };
+                    catMenu.appendChild(btn);
+                });
+            });
+
+        // 5. Função para mostrar os produtos da categoria (simples exemplo)
+        function mostrarProdutosDaCategoria(cat) {
+            // Aqui você pode trocar pelo seu sistema de cards de produto
+            const main = document.querySelector('main');
+            main.innerHTML = '';
+            if (!categoriasJSON[cat]) {
+                main.innerHTML = '<p>Nenhum produto para esta categoria.</p>';
+                return;
+            }
+            main.innerHTML = `<h2>${cat}</h2><ul style="padding:10px 0 0 10px">`
+                + categoriasJSON[cat].map(nome => `<li>${nome}</li>`).join('') + '</ul>';
+        }
+
+        // 6. Pesquisa
+        document.getElementById('btn-pesquisa').onclick = () => {
+            const termo = document.getElementById('search').value.trim().toLowerCase();
+            if (!termo) return;
+            // Busca por produto ou marca em todas as categorias
+            const resultados = [];
+            for (const cat in categoriasJSON) {
+                categoriasJSON[cat].forEach(nome => {
+                    if (nome.toLowerCase().includes(termo)) {
+                        resultados.push({ categoria: cat, nome });
+                    }
+                });
+            }
+            // Exibe resultado no <main>
+            const main = document.querySelector('main');
+            if (resultados.length === 0) {
+                main.innerHTML = `<p>Nenhum resultado para <b>${termo}</b>.</p>`;
+            } else {
+                main.innerHTML = `<h2>Resultados para: ${termo}</h2><ul style="padding:10px 0 0 10px">`
+                    + resultados.map(r => `<li><b>${r.categoria}:</b> ${r.nome}</li>`).join('') + '</ul>';
+            }
+
+        };
+
+
+    </script>
+    <script>
+
+    </script>
+</body>
+
+</html>
