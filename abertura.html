@@ -10,18 +10,19 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box
+            box-sizing: border-box;
         }
 
         html,
         body {
-            height: 100%
+            height: 100%;
+            width: 100%;
         }
 
         body {
             background: #000;
             font-family: 'Segoe UI', system-ui, sans-serif;
-            overflow: hidden
+            overflow: hidden;
         }
 
         /* GATE */
@@ -34,31 +35,31 @@
             color: #fff;
             z-index: 4;
             text-align: center;
-            padding: 24px
+            padding: 24px;
         }
 
         .gate .wrap {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 18px
+            gap: 18px;
         }
 
         .gate img {
             width: 86px;
             height: 86px;
-            border-radius: 16px
+            border-radius: 16px;
         }
 
         .gate h1 {
             margin: 0;
             font-size: 28px;
-            letter-spacing: .5px
+            letter-spacing: .5px;
         }
 
         .gate p {
             opacity: .9;
-            max-width: 360px
+            max-width: 360px;
         }
 
         .btn {
@@ -69,17 +70,17 @@
             font-weight: 700;
             font-size: 16px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
-            transition: transform .15s ease, background .2s ease
+            transition: transform .15s ease, background .2s ease;
         }
 
         .btn-primary {
             background: #0b5;
-            color: #fff
+            color: #fff;
         }
 
         .btn-primary:hover {
             transform: translateY(-1px);
-            background: #0a4
+            background: #0a4;
         }
 
         /* INTRO */
@@ -89,20 +90,20 @@
             display: grid;
             place-items: center;
             background: #000;
-            z-index: 2
+            z-index: 2;
         }
 
         video {
             height: 100vh;
             object-fit: cover;
-            background: #000
+            background: #000;
         }
 
         .overlay {
             position: absolute;
             inset: 0;
             background: linear-gradient(to top, rgba(0, 0, 0, .35), rgba(0, 0, 0, .15));
-            pointer-events: none
+            pointer-events: none;
         }
 
         .brand {
@@ -112,25 +113,24 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            pointer-events: none
+            pointer-events: none;
         }
 
         .brand img {
             width: 40px;
             height: 40px;
-            border-radius: 10px
+            border-radius: 10px;
         }
 
         .brand span {
             color: #cde8c9;
             font-weight: 600;
-            letter-spacing: .5px
+            letter-spacing: .5px;
         }
 
-        /* >>> FIX: botão em nível de raiz e acima do fallback */
+        /* Botão Pular (fixo e acima de tudo) */
         .skip {
             position: fixed;
-            /* antes era absolute */
             right: 20px;
             bottom: 20px;
             padding: 12px 18px;
@@ -144,12 +144,11 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, .25);
             transition: transform .15s ease, opacity .2s ease, background .2s ease;
             z-index: 6;
-            /* maior que .fallback (3) e .intro (2) */
         }
 
         .skip:hover {
             transform: translateY(-1px);
-            background: #2a5524
+            background: #2a5524;
         }
 
         /* FALLBACK */
@@ -165,69 +164,69 @@
             opacity: 0;
             transform: scale(.98);
             transition: opacity .25s ease, transform .25s ease;
-            z-index: 3
+            z-index: 3;
         }
 
         .fallback.show {
             opacity: 1;
-            transform: scale(1)
+            transform: scale(1);
         }
 
         .fallback .logo {
             display: flex;
             align-items: center;
-            gap: 14px
+            gap: 14px;
         }
 
         .fallback .logo img {
-            width: 80px
+            width: 80px;
         }
 
         .fallback .logo .txt h1 {
             font-size: 36px;
             line-height: 1;
-            margin: 0
+            margin: 0;
         }
 
         .fallback .logo .txt span {
             font-size: 20px;
             color: #cde8c9;
-            letter-spacing: 6px
+            letter-spacing: 6px;
         }
 
         .fallback .actions {
             margin-top: 16px;
             display: flex;
             gap: 10px;
-            justify-content: center
+            justify-content: center;
         }
 
-        @media (max-width:768px) {
+        @media (max-width: 768px) {
             video {
-                widht: 100vw;
+                width: 100vw;
                 object-fit: cover;
-                background: #000
+                background: #000;
             }
 
             .brand {
                 left: 12px;
-                bottom: 12px
+                bottom: 12px;
             }
 
             .skip {
                 right: 12px;
                 bottom: 12px;
                 padding: 10px 14px;
-                font-size: 14px
+                font-size: 14px;
             }
 
             .gate img {
                 width: 72px;
-                height: 72px
+                height: 72px;
             }
         }
 
-        /* Cross-document view transitions (se o navegador suportar) */
+        /* View Transitions */
         @keyframes vt-fade-out {
             to {
                 opacity: 0;
@@ -252,12 +251,11 @@
             animation: vt-fade-in .45s ease both;
         }
 
-        /* Fallback: overlay que faz crossfade pro verde da marca */
+        /* Fallback crossfade pro verde */
         .page-fade {
             position: fixed;
             inset: 0;
             background: #1e3d1a;
-            /* cor da marca */
             opacity: 0;
             pointer-events: none;
             z-index: 9999;
@@ -275,7 +273,7 @@
     <!-- GATE -->
     <div class="gate" id="gate">
         <div class="wrap">
-            <img src="img/logo.png" alt="SHELF">
+            <img src="img/logo.png" alt="SHELF" />
             <h1>SHELF Distribuidora</h1>
             <p>Toque em “Entrar” para iniciar.</p>
             <button class="btn btn-primary" id="enterBtn" type="button">Entrar</button>
@@ -292,7 +290,7 @@
 
         <div class="overlay" aria-hidden="true"></div>
         <div class="brand" aria-hidden="true">
-            <img src="img/logo.png" alt="">
+            <img src="img/logo.png" alt="" />
             <span>SHELF Distribuidora</span>
         </div>
     </div>
@@ -303,14 +301,13 @@
     <!-- FALLBACK -->
     <div class="fallback" id="fallback" role="dialog" aria-live="polite" aria-label="Abertura">
         <div class="logo">
-            <img src="img/logo.png" alt="Grupo SHELF">
+            <img src="img/logo.png" alt="Grupo SHELF" />
             <div class="txt">
                 <h1>SHELF</h1>
                 <span>Distribuidora</span>
             </div>
         </div>
-        <p style="margin-top:10px;opacity:.85">Não foi possível reproduzir o vídeo.</p>
-        <!-- Botão Pular dentro do fallback (opcional) -->
+        <p style="margin-top:10px;opacity:.85;">Não foi possível reproduzir o vídeo.</p>
         <div class="actions">
             <button class="btn btn-primary" id="fallbackSkip" type="button">Pular</button>
         </div>
@@ -334,11 +331,11 @@
 
             // 1) fade-out de áudio do vídeo (suave)
             try {
-                const vid = document.getElementById('introVideo');
-                if (vid && typeof vid.volume === 'number') {
+                const vid = document.getElementById("introVideo");
+                if (vid && typeof vid.volume === "number") {
                     let v = vid.volume ?? 1;
-                    const step = 0.08;           // quanto diminui por tick
-                    const every = 40;            // ms entre cada tick (~0.5s total)
+                    const step = 0.08;
+                    const every = 40;
                     const timer = setInterval(() => {
                         v = Math.max(0, v - step);
                         vid.volume = v;
@@ -349,20 +346,19 @@
 
             const navigate = () => { window.location.href = REDIRECT_URL; };
 
-            // 2) View Transitions (se disponível) – navegação com crossfade nativo
+            // 2) View Transitions
             if (document.startViewTransition) {
                 document.startViewTransition(() => navigate());
                 return;
             }
 
-            // 3) Fallback: overlay que faz fade pro verde e depois navega
-            const overlay = document.createElement('div');
-            overlay.className = 'page-fade';
+            // 3) Fallback: overlay verde e depois navega
+            const overlay = document.createElement("div");
+            overlay.className = "page-fade";
             document.body.appendChild(overlay);
-            // força reflow e ativa transição
-            overlay.offsetHeight;
-            overlay.classList.add('show');
-            setTimeout(navigate, 450); // mesmo tempo do CSS
+            overlay.offsetHeight; /* força reflow */
+            overlay.classList.add("show");
+            setTimeout(navigate, 450);
         }
 
         // Entrar -> toca com áudio
@@ -379,9 +375,9 @@
             }
         });
 
-        // Pular (sempre visível)
+        // Pular
         skipBtn.addEventListener("click", goNext);
-        fallbackSkip?.addEventListener("click", goNext);
+        if (fallbackSkip) fallbackSkip.addEventListener("click", goNext);
 
         // Fallback se erro
         video.addEventListener("error", () => fallback.classList.add("show"));
@@ -399,8 +395,4 @@
     </script>
 </body>
 
-
 </html>
-
-
-
